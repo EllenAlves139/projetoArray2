@@ -1,4 +1,4 @@
-const prompt = require('prompt-sync')();
+let prompt = require('prompt-sync')();
 
 let total = 0;
 let valor;
@@ -8,7 +8,8 @@ console.log('Digite os valores das compras. Digite 0 para finalizar.\n');
 
 do {
   valor = prompt('Valor da compra: R$ ');
-  
+
+  // Validação: valor numérico e não vazio
   while (isNaN(valor) || valor.trim() === '') {
     console.log('Valor inválido. Tente novamente.');
     valor = prompt('Valor da compra: R$ ');
@@ -23,6 +24,7 @@ do {
 
 console.log('\nTotal da compra: R$ ' + total.toFixed(2));
 
+// Escolha da forma de pagamento
 let formaPagamento = prompt('Deseja pagar em "dinheiro" ou "cartão"? ').toLowerCase();
 
 switch (formaPagamento) {
@@ -39,5 +41,6 @@ switch (formaPagamento) {
     break;
 
   default:
-    console.log('Forma de pagamento inválida. Tente novamente.');
+    console.log('Forma de pagamento inválida. Nenhuma operação realizada.');
 }
+
